@@ -1,4 +1,4 @@
-def getPropriety(text, tag):
+def getPropriety(text, tag): 
     if text.find(' '+tag+'=\'') != -1:
         begin = text.find(' '+tag+'=\'')+3+len(tag)
         if begin == -1:
