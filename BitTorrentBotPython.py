@@ -4,7 +4,7 @@ from config_parser import getSettings, setSettings
 import sys
 import requests
 
-fail_next_get_count = 3
+fail_next_get_count = 3 #default amount of episodes its gonna search for before changing season if one is not found
 
 def get_ep_info(showname, showseason, showep, uploader_list):
     showinfo = showname+' s'+str(showseason).zfill(2)+'e'+str(showep).zfill(2)
