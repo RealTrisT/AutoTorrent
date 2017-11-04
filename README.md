@@ -1,7 +1,8 @@
 # AutoTorrent
 
 So this is a python project that, given a config file, will search for shows and their episodes, and set a torrent client to downoad those.
-Here is a video showcasing an early version (hardcoded uploader names and individual download). Possibly another one will come out showing the full thing, along with me adding a batch/powershell script to scheduele running this every few hours or so.
+
+Here is a [video](https://youtu.be/cdxfx8k-CqM) showcasing an early version (hardcoded uploader names and individual download). Possibly another one will come out showing the full thing, along with me adding a batch/powershell script to scheduele running this every few hours or so.
 
 # How it Works
 
