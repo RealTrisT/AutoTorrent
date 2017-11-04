@@ -59,7 +59,8 @@ same as season, except episode
 path to where your show is, so say you want episode 5 to be in "mySeries\worstComedyShow\S03\torrent-file-of-episode-5", you'd do "mySeries\worstComedyShow". **DO NOT PUT A BACKSLASH IN THE END OF THE PATH, SHIT WILL BREAK, you're warned**
 
 ##### except
-optional, a word that, if found in the torrent title, will skip that torrent entry. For example, you have 2 series with the same name, say "offensive boi" one's from 1992, the other one is from 2010, imagine for instance that the one from 2010 has more seeders, but you want the one from 1992, do except='2010', and unless some head-in-ass uploader forgot to mention which of the 2 it is, you should only download the ones from 1992
+optional, words that, if found in the torrent title, will skip that torrent entry. For example, you have 2 series with the same name, say "offensive boi" one's from 1992, the other one is from 2010, imagine for instance that the one from 2010 has more seeders, but you want the one from 1992, do except='2010', and unless some head-in-ass uploader forgot to mention which of the 2 it is, you should only download the ones from 1992
+You can do multiple separated by `;`s, example: `except='2010;head-in-ass uploader'`
 
 # Lettuce
 Sorry, there's actually no lettuce here. Why are you even looking for lettuce on github, makes no sense.
