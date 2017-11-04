@@ -46,8 +46,17 @@ def get_ep_info(ep, uploader_list, maxAttempts = None, supressStatusCodeFailiure
         variable_first = r.text.find('<td>\n<div class="detName">', variable_first)+1
         enderoni = r.text.find(' class="detLink" title', variable_first)
         if 'except' in ep:
-            if r.text[variable_first:enderoni].find(ep['except']) != -1:
-                continue
+            if isinstance(ep['except'], str):
+                if r.text[variable_first:enderoni].find(ep['except']) != -1:
+                    continue
+            else:
+                infilter = False
+                for exception in ep['except']:
+                    if r.text[variable_first:enderoni].find(exception) != -1:
+                        infilter = True
+                        break
+                if infilter:
+                    continue
         if r.text[variable_first:enderoni].find('720') == -1 and r.text[variable_first:enderoni].find('1080') == -1:
             res720or1080 = False
         else:
@@ -98,6 +107,7 @@ def main():
     settings = getSettings(sys.argv[1].replace('"', ''))
     if settings == False:
         return 0
+    #print(str(settings))
 
     fail_next_get_count = 3
     if len(sys.argv) > 2:
