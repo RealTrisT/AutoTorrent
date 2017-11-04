@@ -34,7 +34,10 @@ def getProprietyList(text):
                 foundEnd = True
                 break
         if foundEnd:                    #all good
-            returnal[text[proprietyLocation+1:beginindex-2]] = text[beginindex:tempend] #set dictionary key to the value of the 
+            if text[beginindex:tempend].find(';') != -1:        #if it has ';'s, which would mean it's a multi-value value
+                returnal[text[proprietyLocation+1:beginindex-2]] = text[beginindex:tempend].split(';')  #set it to an array of multiple values
+            else:
+                returnal[text[proprietyLocation+1:beginindex-2]] = text[beginindex:tempend] #set dictionary key to it's value
         else:                           #it's all fucked, user is a fuckface who can't follow simple instructions on how to write a config file
             return False
         proprietyLocation = text.find(' ', tempend)   #find next propriety
@@ -82,6 +85,14 @@ def setSettings (configFileDirectory, settings):
                 continue
             configFile.write('<' + key)
             for subkey, subvalue in tagEntry.items():
-                configFile.write(' ' + subkey + '=\'' + subvalue + '\'')
+                if isinstance(subvalue, str):
+                    configFile.write(' ' + subkey + '=\'' + subvalue + '\'')
+                else:
+                    configFile.write(' ' + subkey + '=\'')
+                    for index, subvalueEntry in enumerate(subvalue):
+                        if index:
+                            configFile.write(';')
+                        configFile.write(subvalueEntry)
+                    configFile.write('\'')
             configFile.write('>\n')
     configFile.close()
