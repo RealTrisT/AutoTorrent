@@ -12,7 +12,7 @@ import requests
 ##      maxAttempts -> 0 for infinite, more for a limit
 def get_ep_info(ep, uploader_list, maxAttempts = None, supressStatusCodeFailiure = None):
     if maxAttempts is None:                 #|------------------------------------------|
-        maxAttempts = 0                     #|                                          |
+        maxAttempts = 0                     #|                                          | 
     else:                                   #|           Python Is Fucking              |  .jpg
         maxAttempts += 1                    #|                Cancer                    |
     if supressStatusCodeFailiure is None:   #|                                          |
