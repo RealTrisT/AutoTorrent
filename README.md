@@ -1,6 +1,7 @@
 # AutoTorrent
 
 So this is a python project that, given a config file, will search for shows and their episodes, and set a torrent client to downoad those.
+Here is a video showcasing an early version (hardcoded uploader names and individual download). Possibly another one will come out showing the full thing, along with me adding a batch/powershell script to scheduele running this every few hours or so.
 
 # How it Works
 
@@ -9,6 +10,7 @@ Basically you make a config file such as this one (details on how to make one fu
 
 And it will search piratebay for the episodes. Upon not finding any further episodes, it will go to the next season, and if none are found in the next season, it goes onto the next show.
 
+In order to use it, one's got to make a config file, and start the script with it as a command line argument.
 
 
 
