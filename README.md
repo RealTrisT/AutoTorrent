@@ -7,7 +7,7 @@ Here is a [video](https://youtu.be/cdxfx8k-CqM) showcasing an early version (har
 # How it Works
 
 Basically you make a config file such as this one (details on how to make one further down):
-![alt text](https://i.imgur.com/CUS98Ii.png)
+![alt text](https://i.imgur.com/uTZKQAh.png)
 
 And it will search piratebay for the episodes. Upon not finding any further episodes, it will go to the next season, and if none are found in the next season, it goes onto the next show.
 
