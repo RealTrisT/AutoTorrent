@@ -18,10 +18,15 @@ In order to use it, one's got to make a config file, and start the script with i
 # Config Files
 
 It's simple enough really, you have 3 tags:
+- proxy
 - torclient
 - uploader
 - show
   
+### proxy
+
+It only has one propriety which is `url`, this is just the part of the url to put before the search, since sometimes proxies go down and different proxies have different search methods (some by get, some by page).
+Just put whatever part of the url comes before of the search tem there. For example, `https://thepiratebay.blue/s/?q=`or `https://pirateproxy.pw/search/`.
   
 ### torclient
 torclient has 2 proprieties:
