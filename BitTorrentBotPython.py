@@ -10,7 +10,7 @@ import requests
 ##       0 <=> results were found but none met the criteria
 #   Params
 ##      maxAttempts -> 0 for infinite, more for a limit
-def get_ep_info(ep, uploader_list, maxAttempts = None, supressStatusCodeFailiure = None):
+def get_ep_info(ep, uploader_list, searchUrl, maxAttempts = None, supressStatusCodeFailiure = None):
     if maxAttempts is None:                 #|------------------------------------------|
         maxAttempts = 0                     #|                                          |
     else:                                   #|           Python Is Fucking              |  .jpg
@@ -21,7 +21,7 @@ def get_ep_info(ep, uploader_list, maxAttempts = None, supressStatusCodeFailiure
 
     showinfo = ep['search_term']+' s'+str(ep['season']).zfill(2)+'e'+str(ep['episode']).zfill(2)
 
-    r = requests.get('https://pirateproxy.cam/search/'+quote(showinfo, safe=''))
+    r = requests.get(searchUrl+quote(showinfo, safe=''))
     while r.status_code != 200 and maxAttempts != 1:
         if not supressStatusCodeFailiure:
             print("Piratebay responded with status", str(r.status_code)+", retrying..")
@@ -69,12 +69,12 @@ def get_ep_info(ep, uploader_list, maxAttempts = None, supressStatusCodeFailiure
         #print("No Valid Entries Were Found For \"" + showinfo+ '"')
         return 0
     
-def get_ep_info_checknext(show, lookAfterCount, uploader_list):
+def get_ep_info_checknext(show, lookAfterCount, uploader_list, searchUrl):
     show['episode'] = int(show['episode'])
     show['season'] = int(show['season'])
     gotShowInfo = False
     for i in range(0, lookAfterCount):
-        showinforn = get_ep_info(show, uploader_list)
+        showinforn = get_ep_info(show, uploader_list, searchUrl)
         if showinforn == 0:
             show['episode'] += 1
             continue
@@ -133,7 +133,7 @@ def main():
                 seasonSwitch = False
                 alreadyExisting += 1
                 continue
-            showinfor = get_ep_info_checknext(show, fail_next_get_count, uploaderlist)
+            showinfor = get_ep_info_checknext(show, fail_next_get_count, uploaderlist, settings['proxy'][0]['url'])
             if showinfor == -1:
                 input('Exceeded Max Tries To Fech Page, Press Enter To Exit')
                 return
