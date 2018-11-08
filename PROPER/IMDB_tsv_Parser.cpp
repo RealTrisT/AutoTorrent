@@ -80,6 +80,9 @@ int main(int argc, char const *argv[]){
 					printf("IMDB ID: %u\n", entries[i].imdbID);
 					printf("TYPE: %s\n", TitleEntry::titleTypeStrings[entries[i].titleType]);
 					printf(entries[i].runtimeMinutes==0xFFFFFFFF?"RUNTIME: \\N\n":"RUNTIME: %u\n", entries[i].runtimeMinutes);
+					printf("DATE: ");
+					printf(entries[i].startYear==0xFFFFFFFF?"\\N - ":"%u - ", entries[i].startYear);
+					printf(entries[i].endYear==0xFFFFFFFF?"\\N\n":"%u\n", entries[i].endYear);
 					puts("");
 
 					found = true;
